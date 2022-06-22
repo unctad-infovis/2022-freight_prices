@@ -10,7 +10,7 @@ import chroma from 'chroma-js';
 // Use chroma to make the color scale.
 // https://gka.github.io/chroma.js/
 const scaleMax = 8117,
-      scaleMin = 1229,
+      scaleMin = 725,
       f = chroma.scale(['#0077b8', '#27933a']).domain([scaleMax, scaleMin]);
 
 let chart_elements,
@@ -43,7 +43,7 @@ const App = () => {
   }, []);
 
   const cleanData = (data) => {
-    data.splice(0, 15);
+    // data.splice(0, 15);
     return data;
   }
 
@@ -77,7 +77,7 @@ const App = () => {
     if (data !== false) {
       interval = setInterval(() => {
         setCurrentIndex((currentIndex) => currentIndex + 1)
-      }, 50);
+      }, 25);
       return () => clearInterval(interval);
     }
   }, [data]);
@@ -95,29 +95,28 @@ const App = () => {
     }
   }, [currentIndex]);
 
+  const defineTickValues = (chart_data) => {
+    let prev_year;
+    return chart_data.map((d, i) => {
+      if (d.date.substring(d.date.length - 4) !== prev_year) {
+        prev_year = d.date.substring(d.date.length - 4);
+        return i;
+      }
+    }).filter(d => d);
+  }
+
   const updateData = () => { // https://www.d3-graph-gallery.com/graph/barplot_button_data_hard.html
     let chart_data = data.map(d => d).slice(0, currentIndex + 1);
-
-    let tick_values = (chart_data.length > 137) ? [34,84,137] : (chart_data.length > 84) ? [34,84] : (chart_data.length > 34) ? [34] : [];
-    let ticks = (chart_data.length > 137) ? 3 : (chart_data.length > 84) ? 2 : (chart_data.length > 34) ? 1 : 0;
+    let tick_values = defineTickValues(chart_data);
+    let ticks = tick_values.length;
     x.domain(chart_data.map((data, i) => i));
     xAxis.call(d3.axisBottom(x)
       .ticks(ticks)
       .tickValues(tick_values)
       .tickFormat(i => {
-        if (i === 34) {
-          return '2020'
-        }
-        if (i === 84) {
-          return '2021'
-        }
-        if (i === 137) {
-          return '2022'
-        }
-        else {
-          return null
-        }
-      }));
+        return data[i].date.substring(data[i].date.length - 4)
+      })
+    );
 
     y.domain([Math.max(0, d3.max(chart_data, d => d.value)), Math.min(0, d3.min(chart_data, d => d.value))]);
     yAxis.call(d3.axisLeft(y)
