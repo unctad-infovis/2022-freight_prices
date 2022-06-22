@@ -87,9 +87,9 @@ module.exports = {
       filename: 'css/styles.min.css'
     }),
     new CopyPlugin([
-      { from: 'public/css/styles.min.css', to: '../drupal/2022-freight_prizes.min.css' },
-      { from: 'public/js/script.min.js', to: '../drupal/2022-freight_prizes.min.js' },
-      { from: 'public/data/data.json', to: '../drupal/2022-freight_prizes.json' },
+      { from: 'public/css/styles.min.css', to: '../drupal/2022-freight_prices.min.css' },
+      { from: 'public/js/script.min.js', to: '../drupal/2022-freight_prices.min.js' },
+      { from: 'public/data/data.json', to: '../drupal/2022-freight_prices.json' },
       { from: 'media/img/', to: 'img' },
       { from: 'media/data/', to: 'data' },
       { from: 'favicon.png', to: '' }

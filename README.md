@@ -1,6 +1,6 @@
-# 2022-freight_prizes
+# 2022-freight_prices
 
-**Live demo** https://unctad-infovis.github.io/2022-freight_prizes/
+**Live demo** https://unctad-infovis.github.io/2022-freight_prices/
 
 ## Rights of usage
 

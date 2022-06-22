@@ -31,7 +31,7 @@ const App = () => {
 
   useEffect(() => {
     createSvg();
-    const data_file = (window.location.href.includes('unctad.org')) ? '/sites/default/files/data-file/2022-freight_prizes.json' : './data/data.json';
+    const data_file = (window.location.href.includes('unctad.org')) ? '/sites/default/files/data-file/2022-freight_prices.json' : './data/data.json';
     try {
       d3.json(data_file).then((json_data) => {
         setData(cleanData(json_data));
