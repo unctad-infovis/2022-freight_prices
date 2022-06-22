@@ -157,7 +157,7 @@ const App = () => {
             <div className={style.value_container} style={{color: f(currentValue)}}>Price ${currentValue.toLocaleString()}</div>
           </div>
           <div>Shanghai-West Coast  North America (base port) $/FEU</div>
-          <div>May 2019 – May 2022</div>
+          <div>Dec. 2010 – Jun 2022</div>
         </h3>
       </div>
       <div className={style.chart_container}></div>
