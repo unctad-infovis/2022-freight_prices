@@ -1,0 +1,70 @@
+// @import url('https://fonts.googleapis.com/css?family=Roboto+Serif:400,700.css');
+// @import url('https://fonts.googleapis.com/css?family=Roboto:400,700.css');
+
+@import 'colors.less';
+
+.app {
+  font-family: 'Roboto';
+  max-width: 1100px;
+  margin: 5px;
+  .chart_container {
+    font-size: 0;
+    display: block;
+    margin-bottom: 20px;
+    svg {
+      margin: auto auto;
+      overflow: visible;
+      .yaxis {
+        display: block;
+        line {
+          stroke-width: 0.2;
+          stroke: rgba(0, 0, 0, 0.5);
+        }
+        text {
+          fill: #7c7067;
+          font-size: 12pt;
+        }
+        path {
+          stroke-width: 0.5;
+          stroke: rgba(0, 0, 0, 0.5);
+        }
+      }
+      .xaxis {
+        path {
+          stroke-width: 0;
+        }
+        line {
+          // stroke-width: 0;
+        }
+        text {
+          dominant-baseline: central;
+          fill: #7c7067;
+          font-size: 12pt;
+          text-anchor: middle;
+        }
+      }
+    }
+  }
+  .title_container {
+    margin-bottom: 20px;
+    .clearfix;
+  }
+  .info_container {
+    float: right;
+    a {
+    }
+    .date_container {
+      text-align: right;
+    }
+    .value_container {
+      text-align: right;
+    }
+  }
+  .source_container {
+    color: @ungrey;
+    font-size: 13px;
+    margin-bottom: 5px;
+  }
+}
+
+@import 'basics.less';
