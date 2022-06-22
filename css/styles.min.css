@@ -1,7 +1,9 @@
 .app___2khK2 {
   font-family: 'Roboto';
-  max-width: 1100px;
   margin: 5px;
+  max-width: 1100px;
+  padding-bottom: 70px;
+  position: relative;
 }
 .app___2khK2 .chart_container___3Jzlm {
   font-size: 0;
@@ -60,6 +62,14 @@
   color: #7c7067;
   font-size: 13px;
   margin-bottom: 5px;
+}
+.app___2khK2 .unctad_logo___1RwBZ {
+  position: absolute;
+  width: 80px;
+  height: 80px;
+  z-index: 3;
+  right: 10px;
+  bottom: 10px;
 }
 /* General styles */
 .clearfix___1yHqr {
