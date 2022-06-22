@@ -157,11 +157,12 @@ const App = () => {
             <div className={style.value_container} style={{color: f(currentValue)}}>Price ${currentValue.toLocaleString()}</div>
           </div>
           <div>Shanghai-West Coast  North America (base port) $/FEU</div>
-          <div>Dec. 2010 – Jun 2022</div>
+          <div>December 2010 – June 2022</div>
         </h3>
       </div>
       <div className={style.chart_container}></div>
-      <div className={style.source_container}><em>Source:</em> UNCTAD</div>
+      <img src="//unctad.org/sites/default/files/2022-06/unctad_logo.svg" alt="UNCTAD logo" className={style.unctad_logo} />
+      <div className={style.source_container}><em>Source:</em> UNCTAD calculations, based on data from Clarksons Research.</div>
     </div>
   );
 };
