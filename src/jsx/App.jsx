@@ -113,9 +113,7 @@ const App = () => {
     xAxis.call(d3.axisBottom(x)
       .ticks(ticks)
       .tickValues(tick_values)
-      .tickFormat(i => {
-        return data[i].date.substring(data[i].date.length - 4)
-      })
+      .tickFormat(i => data[i].date.substring(data[i].date.length - 4))
     );
 
     y.domain([Math.max(0, d3.max(chart_data, d => d.value)), Math.min(0, d3.min(chart_data, d => d.value))]);
@@ -142,7 +140,7 @@ const App = () => {
       .attr('x', 0)
       .attr('y', y(0))
       .merge(bars)
-      .attr('width', x.bandwidth() - 0.5)
+      .attr('width', x.bandwidth() + 1)
       .attr('height', d => Math.abs(y(d.value) - y(0)))
       .attr('y', d => (d > 0) ? y(Math.max(0, d.value)) : y(Math.max(0, d.value)) + 1)
       .attr('x', (d, i) => x(i));
