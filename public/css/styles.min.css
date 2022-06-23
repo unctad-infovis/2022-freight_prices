@@ -2,6 +2,8 @@
   font-family: 'Roboto';
   margin: 5px;
   max-width: 1100px;
+  min-width: 500px;
+  overflow-x: scroll;
   padding-bottom: 70px;
   position: relative;
 }
@@ -28,6 +30,19 @@
 .app___2khK2 .chart_container___3Jzlm svg .yaxis___2Krk0 path {
   stroke-width: 0.5;
   stroke: rgba(0, 0, 0, 0.5);
+}
+@media all and (max-width: 600px) {
+  .app___2khK2 .chart_container___3Jzlm svg .xaxis___MfCnB g:nth-child(odd) text {
+    opacity: 0;
+  }
+}
+@media all and (max-width: 450px) {
+  .app___2khK2 .chart_container___3Jzlm svg .xaxis___MfCnB text {
+    opacity: 0;
+  }
+  .app___2khK2 .chart_container___3Jzlm svg .xaxis___MfCnB g:nth-child(3n-1) text {
+    opacity: 1;
+  }
 }
 .app___2khK2 .chart_container___3Jzlm svg .xaxis___MfCnB path {
   stroke-width: 0;
