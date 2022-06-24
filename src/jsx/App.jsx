@@ -4,6 +4,10 @@ import style from './../styles/styles.less';
 // https://d3js.org/
 import * as d3 from 'd3';
 
+// https://www.npmjs.com/package/react-is-visible
+import 'intersection-observer';
+import { useIsVisible } from 'react-is-visible';
+
 // https://vis4.net/chromajs/
 import chroma from 'chroma-js';
 
@@ -23,8 +27,10 @@ let chart_elements,
     y,
     yAxis;
 
+let isVisible = false;
 const App = () => {
   const containerRef = React.createRef();
+  isVisible = useIsVisible(containerRef);
   const [currentValue, setCurrentValue] = useState(0);
   const [currentDate, setCurrentDate] = useState('');
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -44,7 +50,7 @@ const App = () => {
   }, []);
 
   const cleanData = (data) => {
-    // data.splice(0, 15);
+    data.splice(0, 399);
     return data;
   }
 
@@ -75,13 +81,15 @@ const App = () => {
   }
 
   useEffect(() => {
-    if (data !== false) {
-      interval = setInterval(() => {
-        setCurrentIndex((currentIndex) => currentIndex + 1)
-      }, 25);
-      return () => clearInterval(interval);
+    if (isVisible === true) {
+      setTimeout(() => {
+        interval = setInterval(() => {
+          setCurrentIndex((currentIndex) => currentIndex + 1)
+        }, 40);
+        return () => clearInterval(interval);
+      }, 500);
     }
-  }, [data]);
+  }, [isVisible]);
 
   useEffect(() => {
     if (data !== false) {
@@ -109,10 +117,8 @@ const App = () => {
   const updateData = () => { // https://www.d3-graph-gallery.com/graph/barplot_button_data_hard.html
     let chart_data = data.map(d => d).slice(0, currentIndex + 1);
     let tick_values = defineTickValues(chart_data);
-    let ticks = tick_values.length;
     x.domain(chart_data.map((data, i) => i));
     xAxis.call(d3.axisBottom(x)
-      .ticks(ticks)
       .tickValues(tick_values)
       .tickFormat(i => data[i].date.substring(data[i].date.length - 4))
     );
@@ -155,13 +161,13 @@ const App = () => {
             <div className={style.date_container}>{currentDate}</div>
             <div className={style.value_container} style={{color: f_text(currentValue)}}>Price ${currentValue.toLocaleString()}</div>
           </div>
-          <div>Shanghai-West Coast  North America (base port) $/FEU</div>
-          <div>December 2010 – June 2022</div>
+          <div>Shipping costs skyrocketed after<br /> a decade of stable prices</div>
         </h3>
       </div>
       <div className={style.chart_container}></div>
       <img src="//unctad.org/sites/default/files/2022-06/unctad_logo.svg" alt="UNCTAD logo" className={style.unctad_logo} />
-      <div className={style.source_container}><em>Source:</em> UNCTAD calculations, based on data from Clarksons Research.</div>
+      <div className={style.source_container}><em>Note:</em> Shanghai-West Coast North America (base port) $/FEU (forty-foot equivalent unit) between December 2010  and June 2022</div>
+      <div className={style.note_container}><em>Source:</em> UNCTAD calculations, based on data from Clarksons Research.</div>
     </div>
   );
 };

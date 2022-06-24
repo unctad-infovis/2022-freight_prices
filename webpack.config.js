@@ -2,6 +2,7 @@ const HtmlWebPackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const CopyPlugin = require('copy-webpack-plugin');
 const GoogleFontsPlugin = require('@beyonk/google-fonts-webpack-plugin');
+const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
 
 module.exports = {
   output: {
@@ -64,6 +65,11 @@ module.exports = {
           },
         ],
       }
+    ]
+  },
+  optimization: {
+    minimizer: [
+      new CssMinimizerPlugin()
     ]
   },
   plugins: [
