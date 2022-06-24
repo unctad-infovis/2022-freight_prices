@@ -11,7 +11,7 @@ import chroma from 'chroma-js';
 // https://gka.github.io/chroma.js/
 const scaleMax = 8117,
       scaleMin = 725,
-      f = chroma.scale(['#0077b8', '#27933a']).domain([scaleMax, scaleMin]);
+      f = chroma.scale(['#009edb', '#72bf44']).domain([scaleMax, scaleMin]);
 
 let chart_elements,
     height,
