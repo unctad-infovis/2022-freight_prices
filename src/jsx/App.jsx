@@ -11,7 +11,8 @@ import chroma from 'chroma-js';
 // https://gka.github.io/chroma.js/
 const scaleMax = 8117,
       scaleMin = 725,
-      f = chroma.scale(['#009edb', '#72bf44']).domain([scaleMax, scaleMin]);
+      f = chroma.scale(['#009edb', '#72bf44']).domain([scaleMax, scaleMin]),
+      f_text = chroma.scale(['#0077b8', '#27933a']).domain([scaleMax, scaleMin]);
 
 let chart_elements,
     height,
@@ -152,7 +153,7 @@ const App = () => {
         <h3>
           <div className={style.info_container}>
             <div className={style.date_container}>{currentDate}</div>
-            <div className={style.value_container} style={{color: f(currentValue)}}>Price ${currentValue.toLocaleString()}</div>
+            <div className={style.value_container} style={{color: f_text(currentValue)}}>Price ${currentValue.toLocaleString()}</div>
           </div>
           <div>Shanghai-West Coast  North America (base port) $/FEU</div>
           <div>December 2010 – June 2022</div>
