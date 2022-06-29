@@ -40,33 +40,26 @@ module.exports = {
       },
       {
         test: /\.(png|jp(e*)g|svg|gif)$/,
+        type: 'asset/resource',
         use: [
           {
             loader: 'file-loader',
             options: {
-              name: 'img/[hash]-[name].[ext]'
+              name: 'assets/img/[name].[ext]'
             }
-          }
-        ]
-      },
-      {
-        test: /\.(json)$/,
-        use: [
-          {
-            loader: 'json-loader',
           }
         ]
       }
     ]
   },
   output: {
-    filename: '' + name + '.min.js',
+    filename: 'js/' + name + '.min.js',
     path: path.resolve(__dirname, 'public'),
     clean: true
   },
   plugins: [
     new MiniCssExtractPlugin({
-      filename: '' + name + '.min.css'
+      filename: 'css/' + name + '.min.css'
     }),
     new HtmlWebPackPlugin({
       title: name,
