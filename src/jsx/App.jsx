@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-import style from './../styles/styles.less';
+import './../styles/styles.less';
 
 // https://d3js.org/
 import * as d3 from 'd3';
@@ -38,7 +38,7 @@ const App = () => {
 
   useEffect(() => {
     createSvg();
-    const data_file = (window.location.href.includes('unctad.org')) ? '/sites/default/files/data-file/2022-freight_prices.json' : './data/data.json';
+    const data_file = (window.location.href.includes('unctad.org')) ? '/sites/default/files/data-file/2022-freight_prices.json' : './media/data/data.json';
     try {
       d3.json(data_file).then((json_data) => {
         setData(cleanData(json_data));
@@ -64,17 +64,17 @@ const App = () => {
     y = d3.scaleLinear()
       .range([0, height]);
 
-    const svg = d3.select('.' + style.chart_container)
+    const svg = d3.select('.chart_container')
       .append('svg')
       .attr('preserveAspectRatio', 'xMidYMid meet')
       .attr('viewBox', '0 0 ' + width + ' ' + height)
       .attr('width', width)
       .attr('height', height);
     yAxis = svg.append('g')
-      .attr('class', style.yaxis)
+      .attr('class', 'yaxis')
       .attr('transform', 'translate(' + (margin.left - 1) + ', ' + margin.top + ')');
     xAxis = svg.append('g')
-      .attr('class', style.xaxis)
+      .attr('class', 'xaxis')
       .attr('transform', 'translate(' + margin.left + ',' + (height) + ')');
     chart_elements = svg.append('g')
       .attr('transform', 'translate(' + margin.left + ',' + margin.top + ')');
@@ -154,20 +154,20 @@ const App = () => {
   }
 
   return (
-    <div className={style.app} ref={containerRef}>
-      <div className={style.title_container}>
+    <div className={'app'} ref={containerRef}>
+      <div className={'title_container'}>
         <h3>
-          <div className={style.info_container}>
-            <div className={style.date_container}>{currentDate}</div>
-            <div className={style.value_container} style={{color: f_text(currentValue)}}>Price ${currentValue.toLocaleString()}</div>
+          <div className={'info_container'}>
+            <div className={'date_container'}>{currentDate}</div>
+            <div className={'value_container'} style={{color: f_text(currentValue)}}>Price ${currentValue.toLocaleString()}</div>
           </div>
           <div>Shipping costs skyrocketed after<br /> a decade of stable prices</div>
         </h3>
       </div>
-      <div className={style.chart_container}></div>
-      <img src="//unctad.org/sites/default/files/2022-06/unctad_logo.svg" alt="UNCTAD logo" className={style.unctad_logo} />
-      <div className={style.source_container}><em>Note:</em> Shanghai-West Coast North America (base port) $/FEU (forty-foot equivalent unit) between December 2010  and June 2022</div>
-      <div className={style.note_container}><em>Source:</em> UNCTAD calculations, based on data from Clarksons Research.</div>
+      <div className={'chart_container'}></div>
+      <img src="//unctad.org/sites/default/files/2022-06/unctad_logo.svg" alt="UNCTAD logo" className={'unctad_logo'} />
+      <div className={'source_container'}><em>Note:</em> Shanghai-West Coast North America (base port) $/FEU (forty-foot equivalent unit) between December 2010  and June 2022</div>
+      <div className={'note_container'}><em>Source:</em> UNCTAD calculations, based on data from Clarksons Research.</div>
     </div>
   );
 };
