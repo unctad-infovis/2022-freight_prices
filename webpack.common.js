@@ -2,7 +2,6 @@ const path = require('path');
 const name = require('./package.json').name;
 const HtmlWebPackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-const GoogleFontsPlugin = require('@beyonk/google-fonts-webpack-plugin');
 
 module.exports = {
   entry: {
@@ -66,13 +65,6 @@ module.exports = {
     clean: true
   },
   plugins: [
-    new GoogleFontsPlugin({
-      fonts: [{
-          family: 'Roboto',
-          variants: ['400','700']
-        }
-      ]
-    }),
     new MiniCssExtractPlugin({
       filename: '' + name + '.min.css'
     }),
