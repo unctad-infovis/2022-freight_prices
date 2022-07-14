@@ -4,7 +4,8 @@
 
 ## Used in
 
-* [UNCTAD Twitter account](https://twitter.com/UNCTAD/status/1543882396654878721)
+* [COVID-19 recovery a chance to remake society for a better future](https://unctad.org/news/covid-19-recovery-chance-remake-society-better-future)
+* [UNCTAD Twitter](https://twitter.com/UNCTAD/status/1543882396654878721)
 
 ## Rights of usage
 
