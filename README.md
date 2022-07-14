@@ -2,6 +2,10 @@
 
 **Live demo** https://unctad-infovis.github.io/2022-freight_prices/
 
+## Used in
+
+* [UNCTAD Twitter account](https://twitter.com/UNCTAD/status/1543882396654878721)
+
 ## Rights of usage
 
 Contact Teemo Tebest.
