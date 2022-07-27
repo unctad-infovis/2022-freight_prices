@@ -108,7 +108,7 @@ function App() {
         if (i !== 0) {
           return `$${i.toLocaleString()}`;
         }
-        return false;
+        return '';
       })
       .tickSizeInner(-width)
       .tickSizeOuter(0));
