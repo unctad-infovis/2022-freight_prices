@@ -177,7 +177,7 @@ function App() {
         </h3>
       </div>
       <div className="chart_container" />
-      <img src="//unctad.org/sites/default/files/2022-11/unctad_logo.svg" alt="UNCTAD logo" className="unctad_logo" />
+      <img src={`${window.location.href.includes('unctad.org') ? 'https://storage.unctad.org/2022-freight_prices/' : './'}assets/img/unctad_logo.svg`} alt="UNCTAD logo" className="unctad_logo" />
       <div className="source_container">
         <em>Note:</em>
         {' '}
